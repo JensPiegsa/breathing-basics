@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+body {
+    background: black;
+    font-family: monospace, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#round {
+    font-size: 7vh;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 10vh;
+    margin-bottom: 3vh;
+    border-bottom: 0.1vh solid #666;
+}
+#phase, #instruction {
+    font-size: 4vh;
+    color: #eee;
+}
+#phase {
+    text-transform: uppercase;
+    margin-bottom: 1vh;
+}
+#instruction {
+    width: 38vh;
+    height: 20vh;
+    text-align: center;
+}
+#counter, #clock {
+    font-size: 16vh;
+    font-weight: 600;
+    margin-top: 3vh;
+}
+#counter {
+    color: deepskyblue;
+}
+#clock {
+    color: yellowgreen;
+}
+#clock.hold-empty {
+    color: indianred;
+}
+#info {
+    font-size: 1.7vh;
+    color: dimgrey;
+    bottom: 3vh;
+    position: absolute;
+}
