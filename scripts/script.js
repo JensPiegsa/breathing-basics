@@ -149,16 +149,6 @@ function onSoundLoaded() {
 }
 
 
-function onClick() {
-    if (currentPhase === 0) {
-        startPhaseOne();
-    } else if (currentPhase === 1) {
-        startPhaseTwo();
-    } else if (currentPhase === 2) {
-        startPhaseThree();
-    }
-}
-
 function playFullBreathSound() {
     fullBreathSound.currentTime = 0;
     fullBreathSound.play();
@@ -187,7 +177,19 @@ function padInteger(num, size) {
 }
 
 const pullStart = {x: 0, y: 0};
+
 const pullEnd = {x: 0, y: 0};
+
+function onClick(e) {
+    if (currentPhase === 0) {
+        startPhaseOne();
+    } else if (currentPhase === 1) {
+        startPhaseTwo();
+    } else if (currentPhase === 2) {
+        startPhaseThree();
+    }
+    onTouchEnd(e);
+}
 
 function onTouchStart(e) {
     if (typeof e["targetTouches"] !== "undefined") {
@@ -218,7 +220,7 @@ function onTouchEnd(e) {
     }
 }
 
-document.addEventListener("touchstart", onTouchStart, false);
-document.addEventListener("touchend", onTouchEnd, false);
+document.addEventListener("touchstart", onTouchStart, true);
+document.addEventListener("touchend", onTouchEnd, true);
 
 loadSounds();
