@@ -13,13 +13,16 @@ body {
     align-items: center;
     flex-direction: column;
 }
+#round, #phase, #instruction, #info {
+    text-align: center;
+}
 #round {
     font-size: 7vh;
     font-weight: 900;
     text-transform: uppercase;
     color: #666;
     margin-top: 10vh;
-    margin-bottom: 3vh;
+    margin-bottom: 4vh;
     border-bottom: 0.1vh solid #666;
 }
 #phase, #instruction {
@@ -32,8 +35,7 @@ body {
 }
 #instruction {
     width: 38vh;
-    height: 20vh;
-    text-align: center;
+    height: 19vh;
 }
 #counter, #clock {
     font-size: 16vh;
