@@ -19,9 +19,9 @@ let currentPhase = 0;
 
 let startTime, deltaTimeInSeconds;
 
-const totalSounds = 13;
+const totalSounds = 15;
 let loadedSounds = 0;
-let fullBreathSound, inhaleSound, exhaleSound, xMinutesPassedSounds;
+let clickSound, fullBreathSound, lastFullBreathSound, inhaleSound, exhaleSound, xMinutesPassedSounds;
 
 /* animation used in first phase */
 const breathCounterAnimation = new Animation(new KeyframeEffect(breathCountLabel, [
@@ -149,7 +149,9 @@ function startClock() {
 }
 
 function loadSoundsAndStart() {
+    clickSound = loadSound("sounds/click.mp3");
     fullBreathSound = loadSound("sounds/full-breath.mp3");
+    lastFullBreathSound = loadSound("sounds/last-full-breath.mp3");
     inhaleSound = loadSound("sounds/inhale.mp3");
     exhaleSound = loadSound("sounds/exhale.mp3");
 
@@ -174,7 +176,7 @@ function loadSound(file) {
 function ready() {
     phaseLabel.textContent = "Get ready"
     instructionLabel.textContent = "Sit or lie down in a safe place away from traffic or water."
-    hintLabel.textContent = "tap to start";
+    hintLabel.textContent = "Tap to start";
     document.body.addEventListener("click", onClick, true);
 }
 
@@ -194,8 +196,19 @@ function onClick(e) {
 }
 
 function playFullBreathSound() {
-    fullBreathSound.currentTime = 0;
-    fullBreathSound.play();
+    if (
+        currentBreathCount === minBreathCount
+        || (currentBreathCount > maxBreathCount - 3 && currentBreathCount < maxBreathCount)) {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    }
+    if (currentBreathCount === maxBreathCount) {
+        lastFullBreathSound.currentTime = 0;
+        lastFullBreathSound.play();
+    } else {
+        fullBreathSound.currentTime = 0;
+        fullBreathSound.play();
+    }
 }
 
 function stopFullBreathSound() {

@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Open Sans';
+    url('OpenSans-Regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans';
+    url('OpenSans-Semibold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 * {
     box-sizing: border-box;
 }
@@ -8,7 +20,7 @@ html, body {
 }
 body {
     background: black;
-    font-family: monospace, sans-serif;
+    font-family: "Open Sans", sans-serif;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -16,12 +28,13 @@ body {
 h1, h2, p {
     margin: 0;
 }
-#round, #phase, #instruction, #hint, #info {
+#round, #phase, #instruction, #clock, #counter, #hint, #info {
     text-align: center;
+    width: 38vh;
 }
 #round {
-    font-size: 7vh;
-    font-weight: 900;
+    font-size: 6vh;
+    font-weight: bold;
     text-transform: uppercase;
     color: #666;
     margin-top: 10vh;
@@ -29,7 +42,7 @@ h1, h2, p {
     border-bottom: 0.1vh solid #666;
 }
 #phase, #instruction, #hint {
-    font-size: 4vh;
+    font-size: 3.5vh;
     color: #eee;
 }
 #phase {
@@ -38,14 +51,14 @@ h1, h2, p {
     margin-bottom: 1vh;
 }
 #instruction, #hint {
-    width: 38vh;
+    width: 29vh;
 }
 #instruction {
-    height: 19vh;
+    height: 19.2vh;
 }
 #counter, #clock {
-    font-size: 16vh;
-    font-weight: 600;
+    font-size: 14vh;
+    font-weight: bold;
     margin-top: 3vh;
 }
 #counter {
@@ -66,4 +79,5 @@ h1, h2, p {
     color: dimgrey;
     bottom: 3vh;
     position: absolute;
+    width: 100%;
 }
