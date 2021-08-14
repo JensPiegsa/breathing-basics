@@ -15,7 +15,7 @@ const hintLabel = document.getElementById("hint");
 
 let currentBreathCount = 1;
 let currentRound = 1;
-let currentPhase = 0;
+let currentPhase = -1;
 
 let startTime, deltaTimeInSeconds;
 
@@ -87,6 +87,20 @@ clockAnimation.onfinish = function () {
 clockShowAnimation.onfinish = startClock;
 
 clockHideAnimation.onfinish = nextRound;
+
+function ready() {
+    instructionLabel.textContent = "Let's do a simple breathing exercise."
+    hintLabel.textContent = "Tap to continue";
+    document.body.addEventListener("click", onClick, true);
+}
+
+function startIntroduction() {
+    currentPhase = 0;
+    roundLabel.textContent = "get ready";
+    phaseLabel.textContent = "preparation";
+    instructionLabel.textContent = "Sit or lie down in a safe place away from traffic or water."
+    hintLabel.textContent = "Tap to start";
+}
 
 function startPhaseOne() {
     currentPhase = 1;
@@ -173,15 +187,11 @@ function loadSound(file) {
     return audio;
 }
 
-function ready() {
-    phaseLabel.textContent = "Get ready"
-    instructionLabel.textContent = "Sit or lie down in a safe place away from traffic or water."
-    hintLabel.textContent = "Tap to start";
-    document.body.addEventListener("click", onClick, true);
-}
-
 function onClick(e) {
     switch (currentPhase) {
+        case -1:
+            startIntroduction();
+            break;
         case 0:
             startPhaseOne();
             break;
