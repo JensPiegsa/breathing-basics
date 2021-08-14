@@ -34,10 +34,15 @@ const clockAnimation = new Animation(new KeyframeEffect(clockLabel, [
     {opacity: 0.8, transform: "translateY(0)"}
 ], {duration: 1000, fill: "backwards"}));
 
+const clockShowAnimation = new Animation(new KeyframeEffect(clockLabel, [
+    {opacity: 0.0, transform: "scale(0.0)", filter: "blur(2vh)"},
+    {opacity: 0.8, transform: "scale(1.0)", filter: "blur(0)"}
+],  {duration: fullBreathDurationInSeconds * inhaleExhaleLengthRatio * 1000, fill: "backwards"}));
+
 const clockHideAnimation = new Animation(new KeyframeEffect(clockLabel, [
     {opacity: 0.8, transform: "scale(1.0)"},
     {opacity: 0.0, transform: "scale(0.0)"}
-],  {duration: 1000, fill: "backwards"}));
+],  {duration: fullBreathDurationInSeconds * (1.0 - inhaleExhaleLengthRatio) * 1000, fill: "backwards"}));
 
 breathCounterAnimation.onfinish = function () {
     currentBreathCount++;
@@ -69,6 +74,12 @@ clockAnimation.onfinish = function () {
             clockHideAnimation.play();
         }
     }
+};
+
+clockShowAnimation.onfinish = function () {
+    startTime = Date.now();
+    clockAnimation.currentTime = 0;
+    clockAnimation.play();
 };
 
 clockHideAnimation.onfinish = nextRound;
@@ -109,12 +120,13 @@ function startPhaseThree()  {
     phaseLabel.textContent = "phase " + currentPhase;
     instructionLabel.textContent = `Inhale deeply, hold your breath for ${phaseThreeHoldSeconds} seconds and exhale.`;
 
+    clockAnimation.pause();
+    clockAnimation.currentTime = 0;
+
     clockLabel.classList.add("hold-empty");
     clockLabel.textContent = "00:00";
 
-    startTime = Date.now();
-    clockAnimation.currentTime = 0;
-    clockAnimation.play();
+    clockShowAnimation.play();
 }
 
 function nextRound() {
