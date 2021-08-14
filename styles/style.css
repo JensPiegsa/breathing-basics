@@ -13,7 +13,10 @@ body {
     align-items: center;
     flex-direction: column;
 }
-#round, #phase, #instruction, #info {
+h1, h2, p {
+    margin: 0;
+}
+#round, #phase, #instruction, #hint, #info {
     text-align: center;
 }
 #round {
@@ -25,16 +28,19 @@ body {
     margin-bottom: 4vh;
     border-bottom: 0.1vh solid #666;
 }
-#phase, #instruction {
+#phase, #instruction, #hint {
     font-size: 4vh;
     color: #eee;
 }
 #phase {
     text-transform: uppercase;
+    margin-top: 0;
     margin-bottom: 1vh;
 }
-#instruction {
+#instruction, #hint {
     width: 38vh;
+}
+#instruction {
     height: 19vh;
 }
 #counter, #clock {
@@ -50,6 +56,10 @@ body {
 }
 #clock.hold-empty {
     color: indianred;
+}
+#hint {
+    margin-top: 5vh;
+    color: dimgrey;
 }
 #info {
     font-size: 1.7vh;

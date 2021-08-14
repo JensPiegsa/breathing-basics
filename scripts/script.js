@@ -11,6 +11,7 @@ const phaseLabel = document.getElementById("phase");
 const instructionLabel = document.getElementById("instruction");
 const breathCountLabel = document.getElementById("counter");
 const clockLabel = document.getElementById("clock");
+const hintLabel = document.getElementById("hint");
 
 let currentBreathCount = 1;
 let currentRound = 1;
@@ -19,26 +20,30 @@ let currentPhase = 0;
 let startTime, deltaTimeInSeconds;
 
 const totalSounds = 13;
-let fullBreathSound, inhaleSound, exhaleSound, xMinutesPassedSounds;
 let loadedSounds = 0;
+let fullBreathSound, inhaleSound, exhaleSound, xMinutesPassedSounds;
 
+/* animation used in first phase */
 const breathCounterAnimation = new Animation(new KeyframeEffect(breathCountLabel, [
     {opacity: 0.0, transform: "scale(0.0)", filter: "blur(2vh)"},
     {opacity: 1.0, transform: "scale(1.0)", filter: "blur(0)", offset: inhaleExhaleLengthRatio},
     {opacity: 0.0, transform: "scale(0.0)"}
 ], {duration: fullBreathDurationInSeconds * 1000, fill: "backwards"}));
 
+/* animation used in second and third phase */
 const clockAnimation = new Animation(new KeyframeEffect(clockLabel, [
     {opacity: 0.8, transform: "translateY(0)"},
     {opacity: 1.0, transform: "translateY(-0.5vh)", offset: 0.5},
     {opacity: 0.8, transform: "translateY(0)"}
 ], {duration: 1000, fill: "backwards"}));
 
+/* animation used in third phase */
 const clockShowAnimation = new Animation(new KeyframeEffect(clockLabel, [
     {opacity: 0.0, transform: "scale(0.0)", filter: "blur(2vh)"},
     {opacity: 0.8, transform: "scale(1.0)", filter: "blur(0)"}
 ],  {duration: fullBreathDurationInSeconds * inhaleExhaleLengthRatio * 1000, fill: "backwards"}));
 
+/* animation used in third phase */
 const clockHideAnimation = new Animation(new KeyframeEffect(clockLabel, [
     {opacity: 0.8, transform: "scale(1.0)"},
     {opacity: 0.0, transform: "scale(0.0)"}
@@ -47,6 +52,9 @@ const clockHideAnimation = new Animation(new KeyframeEffect(clockLabel, [
 breathCounterAnimation.onfinish = function () {
     currentBreathCount++;
     if (currentBreathCount <= maxBreathCount) {
+        if (currentBreathCount >= minBreathCount) {
+            hintLabel.textContent = "Tap to go into retention sooner";
+        }
         breathCountLabel.textContent = "" + currentBreathCount;
         playFullBreathSound();
         breathCounterAnimation.play();
@@ -76,11 +84,7 @@ clockAnimation.onfinish = function () {
     }
 };
 
-clockShowAnimation.onfinish = function () {
-    startTime = Date.now();
-    clockAnimation.currentTime = 0;
-    clockAnimation.play();
-};
+clockShowAnimation.onfinish = startClock;
 
 clockHideAnimation.onfinish = nextRound;
 
@@ -90,6 +94,7 @@ function startPhaseOne() {
     roundLabel.textContent = "round " + currentRound;
     phaseLabel.textContent = "phase " + currentPhase;
     instructionLabel.textContent = `Breathe deeply ${minBreathCount}-${maxBreathCount} times and exhale after the last breath.`;
+    hintLabel.textContent = "";
     breathCountLabel.style.display = "inline-block";
     breathCountLabel.textContent = "1";
     breathCounterAnimation.play();
@@ -99,7 +104,8 @@ function startPhaseTwo() {
     currentPhase = 2;
     stopFullBreathSound();
     phaseLabel.textContent = "phase " + currentPhase;
-    instructionLabel.textContent = "Hold your breath as long as it's comfortable for you and tap.";
+    instructionLabel.textContent = "Hold your breath as long as it's comfortable for you.";
+    hintLabel.textContent = "Tap to continue";
 
     currentBreathCount = 1;
     breathCountLabel.style.display = "none";
@@ -109,17 +115,15 @@ function startPhaseTwo() {
     clockLabel.textContent = "00:00";
     clockLabel.style.display = "inline-block";
 
-    startTime = Date.now();
-    clockAnimation.currentTime = 0;
-    clockAnimation.play();
+    startClock();
 }
 
 function startPhaseThree()  {
     currentPhase = 3;
     playInhaleSound();
     phaseLabel.textContent = "phase " + currentPhase;
-    instructionLabel.textContent = `Inhale deeply, hold your breath for ${phaseThreeHoldSeconds} seconds and exhale.`;
-
+    instructionLabel.textContent = `Inhale deeply, hold your breath for ${phaseThreeHoldSeconds} seconds, and then exhale.`;
+    hintLabel.textContent = "";
     clockAnimation.pause();
     clockAnimation.currentTime = 0;
 
@@ -136,6 +140,12 @@ function nextRound() {
     clockLabel.classList.remove("hold-empty");
 
     startPhaseOne();
+}
+
+function startClock() {
+    startTime = Date.now();
+    clockAnimation.currentTime = 0;
+    clockAnimation.play();
 }
 
 function loadSoundsAndStart() {
@@ -162,7 +172,9 @@ function loadSound(file) {
 }
 
 function ready() {
-    phaseLabel.textContent = "tap to start";
+    phaseLabel.textContent = "Get ready"
+    instructionLabel.textContent = "Sit or lie down in a safe place away from traffic or water."
+    hintLabel.textContent = "tap to start";
     document.body.addEventListener("click", onClick, true);
 }
 
