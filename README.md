@@ -1,7 +1,7 @@
 # Breathing Basics #
 
 [![Open Source](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/JensPiegsa/breathing-basics)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3WB8AXMP4VY98)
+[![Donate](https://img.shields.io/badge/%F0%9F%8D%B5-Buy%20me%20a%20mat%C3%A9-lightgrey)](https://www.buymeacoffee.com/breathingbasics)
 
 This is a free [deep breathing and retention timer](https://jenspiegsa.github.io/breathing-basics/).
 
