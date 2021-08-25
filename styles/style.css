@@ -13,6 +13,20 @@ body {
     align-items: center;
     flex-direction: column;
 }
+#info-link {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    display: block;
+    padding: 0.7rem 1rem;
+    line-height: 1;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #249;
+    color: #fff;
+}
 h1, h2, p {
     margin: 0;
 }

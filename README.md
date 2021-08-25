@@ -7,16 +7,14 @@ This is a [deep breathing and retention timer](https://jenspiegsa.github.io/brea
 
 ## Features ##
 
-* runs on mobile devices and modern desktop browsers
-* free of charge, no ads, open source
-* privacy first: no data is collected
-* auditory cues for breathing and retention
-* breathing and retention can be finished, whenever it feels right
-* no competition, no need to chase numbers
-* simple dark color theme
+
+|     |     |
+| --- | --- |
+| ℹ guided breathing exercise, try to do 3-4 rounds | 😃 free of charge, no ads, open source |
+| 🔊 auditory cues for breathing and retention | 🖥️ runs on mobile devices and on modern desktop browsers |
+| 🕒 finish breathing / retention whenever it feels right | 🚫 privacy first: no data is collected | 
+| 🐌 no competition, no need to chase numbers | 🌙 minimal dark color theme |
 
 ## Screenshots ##
 
-<img src="screenshots/screenshot-phase-i.png" width="20%"  alt="screenshot phase 1" />
-<img src="screenshots/screenshot-phase-ii.png" width="20%" alt="screenshot phase 2" />
-<img src="screenshots/screenshot-phase-iii.png" width="20%" alt="screenshot phase 3" />
+<img src="screenshots/screenshot-phase-i.png" width="25%"  alt="screenshot phase 1" /> <img src="screenshots/screenshot-phase-ii.png" width="25%" alt="screenshot phase 2" /> <img src="screenshots/screenshot-phase-iii.png" width="25%" alt="screenshot phase 3" />
