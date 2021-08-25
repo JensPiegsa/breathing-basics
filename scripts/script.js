@@ -19,9 +19,11 @@ let currentPhase = -1;
 
 let startTime, deltaTimeInSeconds;
 
-const totalSounds = 15;
+const totalSounds = 17;
 let loadedSounds = 0;
-let clickSound, fullBreathSound, lastFullBreathSound, inhaleSound, exhaleSound, xMinutesPassedSounds;
+let clickSound, bellOneSound, bellTwoSound,
+    fullBreathSound, lastFullBreathSound, inhaleSound, exhaleSound,
+    xMinutesPassedSounds;
 
 /* animation used in first phase */
 const breathCounterAnimation = new Animation(new KeyframeEffect(breathCountLabel, [
@@ -105,8 +107,8 @@ function startIntroduction() {
 function startPhaseOne() {
     currentPhase = 1;
     playFullBreathSound();
-    roundLabel.textContent = "round " + currentRound;
-    phaseLabel.textContent = "phase " + currentPhase;
+    roundLabel.textContent = "Round " + currentRound;
+    phaseLabel.textContent = "Phase I / III";
     instructionLabel.textContent = `Breathe deeply ${minBreathCount}-${maxBreathCount} times and exhale after the last breath.`;
     hintLabel.textContent = "";
     breathCountLabel.style.display = "inline-block";
@@ -117,7 +119,7 @@ function startPhaseOne() {
 function startPhaseTwo() {
     currentPhase = 2;
     stopFullBreathSound();
-    phaseLabel.textContent = "phase " + currentPhase;
+    phaseLabel.textContent = "Phase II / III";
     instructionLabel.textContent = "Hold your breath as long as it's comfortable for you.";
     hintLabel.textContent = "Tap to continue";
 
@@ -135,7 +137,7 @@ function startPhaseTwo() {
 function startPhaseThree()  {
     currentPhase = 3;
     playInhaleSound();
-    phaseLabel.textContent = "phase " + currentPhase;
+    phaseLabel.textContent = "Phase III / III";
     instructionLabel.textContent = `Inhale deeply, hold your breath for ${phaseThreeHoldSeconds} seconds, and then exhale.`;
     hintLabel.textContent = "";
     clockAnimation.pause();
@@ -164,6 +166,8 @@ function startClock() {
 
 function loadSoundsAndStart() {
     clickSound = loadSound("sounds/click.mp3");
+    bellOneSound = loadSound("sounds/bell-1.mp3");
+    bellTwoSound = loadSound("sounds/bell-2.mp3");
     fullBreathSound = loadSound("sounds/full-breath.mp3");
     lastFullBreathSound = loadSound("sounds/last-full-breath.mp3");
     inhaleSound = loadSound("sounds/inhale.mp3");
@@ -206,13 +210,17 @@ function onClick(e) {
 }
 
 function playFullBreathSound() {
-    if (
-        currentBreathCount === minBreathCount
-        || (currentBreathCount > maxBreathCount - 3 && currentBreathCount < maxBreathCount)) {
+    if (currentBreathCount > maxBreathCount - 3 && currentBreathCount < maxBreathCount) {
+        bellOneSound.currentTime = 0;
+        bellOneSound.play();
+    } else if (currentBreathCount === minBreathCount) {
         clickSound.currentTime = 0;
         clickSound.play();
     }
-    if (currentBreathCount === maxBreathCount) {
+
+        if (currentBreathCount === maxBreathCount) {
+        bellTwoSound.currentTime = 0;
+        bellTwoSound.play();
         lastFullBreathSound.currentTime = 0;
         lastFullBreathSound.play();
     } else {
