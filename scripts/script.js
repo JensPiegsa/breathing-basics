@@ -192,21 +192,27 @@ function loadSound(file) {
 }
 
 function onClick(e) {
-    switch (currentPhase) {
-        case -1:
+    if (!e.target.matches('a, a *')) {
+        startPhase(currentPhase + 1);
+    }
+    onTouchEnd(e);
+}
+
+function startPhase(phase) {
+    switch (phase) {
+        case 0:
             startIntroduction();
             break;
-        case 0:
+        case 1:
             startPhaseOne();
             break;
-        case 1:
+        case 2:
             startPhaseTwo();
             break;
-        case 2:
+        case 3:
             startPhaseThree();
             break;
     }
-    onTouchEnd(e);
 }
 
 function playFullBreathSound() {
