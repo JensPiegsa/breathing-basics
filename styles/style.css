@@ -13,20 +13,31 @@ body {
     align-items: center;
     flex-direction: column;
 }
-#info-link {
+
+.link-button {
     position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    display: block;
-    padding: 0.7rem 1rem;
-    line-height: 1;
-    font-size: 18px;
+    top: 3vh;
+    font-size: 3.3vh;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
-    background-color: #249;
-    color: #fff;
+    border-radius: 50%;
+    background-color: #444;
+    width: 7vh;
+    height: 7vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
+.link-button:hover {
+    background-color: #666;
+}
+#scm-link {
+    right: 11.5vh;
+}
+#mate-link {
+    right: 3vh;
+}
+
 h1, h2, p {
     margin: 0;
 }

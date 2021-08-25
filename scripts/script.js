@@ -218,7 +218,7 @@ function playFullBreathSound() {
         clickSound.play();
     }
 
-        if (currentBreathCount === maxBreathCount) {
+    if (currentBreathCount === maxBreathCount) {
         bellTwoSound.currentTime = 0;
         bellTwoSound.play();
         lastFullBreathSound.currentTime = 0;
