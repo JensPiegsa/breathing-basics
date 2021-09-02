@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    user-select: none;
 }
 html, body {
     height: 100%;
@@ -14,7 +15,7 @@ body {
     flex-direction: column;
 }
 
-.link-button {
+.round-button {
     position: absolute;
     top: 3vh;
     font-size: 3.3vh;
@@ -28,14 +29,18 @@ body {
     align-items: center;
     display: flex;
 }
-.link-button:hover {
+.round-button:hover {
     background-color: #666;
 }
-#scm-link {
-    right: 11.5vh;
+#scm-button {
+    left: 11.5vh;
 }
-#mate-link {
+#mate-button {
+    left: 3vh;
+}
+#finish-button {
     right: 3vh;
+    cursor: pointer;
 }
 
 h1, h2, p {
