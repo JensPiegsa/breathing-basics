@@ -221,7 +221,15 @@ function startClock() {
     clockAnimation.play();
 }
 
+function detectAndroid() {
+    if (navigator.userAgent.toLowerCase().indexOf("android") !== -1) {
+        document.body.classList.add("android");
+    }
+}
+
 function loadSoundsAndStart() {
+    detectAndroid();
+
     clickSound = loadSound("sounds/click.mp3");
     bellOneSound = loadSound("sounds/bell-1.mp3");
     bellTwoSound = loadSound("sounds/bell-2.mp3");

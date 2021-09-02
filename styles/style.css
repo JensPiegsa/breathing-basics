@@ -42,6 +42,12 @@ body {
     right: 3vh;
     cursor: pointer;
 }
+.android #finish-button {
+    background-color: #888;
+}
+.android  #finish-button:hover {
+    background-color: #aaa;
+}
 
 h1, h2, p {
     margin: 0;
