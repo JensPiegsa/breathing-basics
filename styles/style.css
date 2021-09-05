@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     user-select: none;
+    margin: 0;
+    padding: 0;
 }
 html, body {
     height: 100%;
@@ -8,7 +10,25 @@ html, body {
     overflow: hidden;
 }
 body {
-    background: black;
+    background-color: var(--background-color);
+    background-image:
+        radial-gradient(circle at center 62%,
+                rgba(var(--background-color-rgb), 0.9) 0%,
+                rgba(var(--background-color-rgb), 0.8) 2%,
+                transparent 4%,
+                rgba(var(--background-color-rgb), 0.5) 5%,
+                rgba(var(--background-color-rgb), 1.0) 6%),
+        radial-gradient(circle at calc(46.6%) calc(52.1%),
+                var(--bubble-color-1) 2.5%,
+                transparent 7%),
+        radial-gradient(circle at calc(53.4%) calc(52.1%),
+                var(--bubble-color-2) 2.5%,
+                transparent 7%),
+        radial-gradient(circle at calc(50%) calc(72%),
+                var(--bubble-color-3) 0%,
+                transparent 7%);
+    background-size: 100vh;
+    background-position: 50% 50%;
     font-family: "Open Sans", sans-serif;
     display: flex;
     align-items: center;
@@ -22,7 +42,7 @@ body {
     font-weight: bold;
     text-decoration: none;
     border-radius: 50%;
-    background-color: #444;
+    background-color: var(--button-background-color);
     width: 7vh;
     height: 7vh;
     justify-content: center;
@@ -30,7 +50,7 @@ body {
     display: flex;
 }
 .round-button:hover {
-    background-color: #666;
+    background-color: var(--button-background-color-hover);
 }
 #scm-button {
     left: 11.5vh;
@@ -43,10 +63,10 @@ body {
     cursor: pointer;
 }
 .android #finish-button {
-    background-color: #888;
+    background-color: var(--button-background-color-alt);
 }
 .android  #finish-button:hover {
-    background-color: #aaa;
+    background-color: var(--button-background-color-alt-hover);
 }
 
 h1, h2, p {
@@ -60,14 +80,14 @@ h1, h2, p {
     font-size: 6vh;
     font-weight: bold;
     text-transform: uppercase;
-    color: #666;
+    color: var(--text-color-3);
     margin-top: 12vh;
     margin-bottom: 4vh;
     border-bottom: 0.1vh solid #666;
 }
 #phase, #instruction, #hint {
     font-size: 3.5vh;
-    color: #eee;
+    color: var(--text-color-2);
 }
 #phase {
     text-transform: uppercase;
@@ -86,21 +106,21 @@ h1, h2, p {
     margin-top: 3vh;
 }
 #counter {
-    color: deepskyblue;
+    color: var(--text-color);
 }
 #clock {
-    color: yellowgreen;
+    color: var(--clock-text-clock);
 }
 #clock.hold-empty {
-    color: indianred;
+    color: var(--clock-text-color-hold);
 }
 #hint {
     margin-top: 5vh;
-    color: dimgrey;
+    color: var(--text-color-3);
 }
 #info {
     font-size: 1.7vh;
-    color: dimgrey;
+    color: var(--text-color-3);
     bottom: 3vh;
     position: absolute;
     width: 100%;
