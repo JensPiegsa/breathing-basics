@@ -104,12 +104,23 @@ h1, h2, p {
     font-size: 14vh;
     font-weight: bold;
     margin-top: 3vh;
+    position: absolute;
+    top: 49%;
 }
 #counter {
     color: var(--text-color);
 }
 #clock {
     color: var(--clock-text-clock);
+    text-shadow:
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px;
+            var(--text-stroke-color) 0 0 5px;
+            var(--text-stroke-color) 0 0 5px;
 }
 #clock.hold-empty {
     color: var(--clock-text-color-hold);
@@ -117,6 +128,8 @@ h1, h2, p {
 #hint {
     margin-top: 5vh;
     color: var(--text-color-3);
+    position: absolute;
+    bottom: 12vh;
 }
 #info {
     font-size: 1.7vh;
