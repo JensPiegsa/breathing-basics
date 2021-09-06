@@ -1,0 +1,62 @@
+body {
+    background-color: var(--background-color);
+    background-image:
+            radial-gradient(circle at center 62%,
+                    rgba(var(--background-color-rgb), 0.9) 0%,
+                    rgba(var(--background-color-rgb), 0.8) 2%,
+                    transparent 4%,
+                    rgba(var(--background-color-rgb), 0.5) 5%,
+                    rgba(var(--background-color-rgb), 1.0) 6%),
+            radial-gradient(circle at calc(46.6%) calc(52.1%),
+                    var(--bubble-color-1) 2.5%,
+                    transparent 7%),
+            radial-gradient(circle at calc(53.4%) calc(52.1%),
+                    var(--bubble-color-2) 2.5%,
+                    transparent 7%),
+            radial-gradient(circle at calc(50%) calc(72%),
+                    var(--bubble-color-3) 0%,
+                    transparent 7%);
+}
+.circle-button {
+    background-color: var(--button-background-color);
+}
+.circle-button:hover {
+    background-color: var(--button-background-color-hover);
+}
+.android #finish-button {
+    background-color: var(--button-background-color-alt);
+}
+.android #finish-button:hover {
+    background-color: var(--button-background-color-alt-hover);
+}
+#round {
+    color: var(--text-color-3);
+    border-bottom-color: var(--text-color-3);
+}
+#phase, #instruction, #hint {
+    color: var(--text-color-2);
+}
+#counter {
+    color: var(--text-color);
+}
+#clock {
+    color: var(--clock-text-clock);
+    text-shadow:
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px,
+            var(--text-outline-color) 0 0 5px;
+            var(--text-outline-color) 0 0 5px;
+            var(--text-outline-color) 0 0 5px;
+}
+#clock.hold-empty {
+    color: var(--clock-text-color-hold);
+}
+#hint {
+    color: var(--text-color-3);
+}
+#version-info {
+    color: var(--text-color-3);
+}

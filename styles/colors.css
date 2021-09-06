@@ -9,8 +9,8 @@
     --text-color-2: rgb(238, 238, 238);
     --text-color-3: rgb(105, 105, 105);
     --text-outline-color: black;
-    --clock-text-clock: yellowgreen;
-    --clock-text-color-hold: rgb(255, 255, 255);
+    --clock-text-clock: rgb(0, 150, 255);
+    --clock-text-color-hold: rgb(255, 100, 100);
     --bubble-color-1: rgb(170, 0, 170);
     --bubble-color-2: rgb(250, 180, 0);
     --bubble-color-3: rgb(0, 150, 255);

@@ -136,9 +136,8 @@ endingAnimation.onfinish = function () {
 };
 
 function reset(animation) {
-    if (animation.currentTime !== null) {
-        animation.pause();
-        animation.currentTime = 0;
+    if (animation.playState === "running") {
+        animation.cancel();
     }
 }
 
@@ -150,6 +149,7 @@ function onClickFinish() {
     reset(breathBackgroundAnimation);
     reset(clockHideAnimation);
     reset(clockAnimation);
+    reset(holdBackgroundAnimation);
 
     stopFullBreathSound();
 

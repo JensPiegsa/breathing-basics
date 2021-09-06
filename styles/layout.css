@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+body {
+    background-size: 100vh;
+    background-position: 50% 50%;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle-button {
+    position: absolute;
+    top: 3vh;
+    font-size: 3.3vh;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50%;
+    width: 7vh;
+    height: 7vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#scm-button {
+    left: 11.5vh;
+}
+#mate-button {
+    left: 3vh;
+}
+#finish-button {
+    right: 3vh;
+    cursor: pointer;
+}
+
+#round, #phase, #instruction, #clock, #counter, #hint, #version-info {
+    text-align: center;
+    width: 38vh;
+}
+#round {
+    font-size: 6vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 12vh;
+    margin-bottom: 4vh;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1vh;
+}
+#phase, #instruction, #hint {
+    font-size: 3.5vh;
+}
+#phase {
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 1vh;
+}
+#instruction, #hint {
+    width: 29vh;
+}
+#instruction {
+    height: 19.2vh;
+}
+#counter, #clock {
+    position: absolute;
+    top: calc(62% - 10vh);
+    font-size: 14vh;
+    font-weight: bold;
+}
+#hint {
+    position: absolute;
+    bottom: 17vh;
+}
+#version-info {
+    position: absolute;
+    bottom: 3vh;
+    font-size: 1.7vh;
+    width: 100%;
+}
