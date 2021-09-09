@@ -1,6 +1,7 @@
 # Breathing Basics #
 
 [![Open Source](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/JensPiegsa/breathing-basics)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/%F0%9F%8D%B5-Buy%20me%20a%20mat%C3%A9-lightgrey)](https://www.buymeacoffee.com/breathingbasics)
 
 This is a free [deep breathing and retention timer](https://jenspiegsa.github.io/breathing-basics/).
